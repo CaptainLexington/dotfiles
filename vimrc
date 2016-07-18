@@ -21,6 +21,11 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'qualiabyte/vim-colorstepper'
 Plugin 'terryma/vim-multiple-cursors'
 
+
+" JavaScript
+
+Plugin 'vim-scripts/JavaScript-Indent'
+
 " Clojure
 Plugin 'tpope/vim-fireplace'
 Plugin 'guns/vim-clojure-static'
@@ -86,7 +91,7 @@ call WrapOn()
 
 " mappings
 "
-map <C-F7> mzgg=G`z
+map <F8> mzgg=G`z
 
 let g:rainbow_active = 1
 
