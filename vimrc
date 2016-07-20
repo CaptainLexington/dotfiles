@@ -20,6 +20,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'qualiabyte/vim-colorstepper'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'vim-airline/vim-airline'
 
 
 " JavaScript
@@ -97,6 +98,7 @@ let g:rainbow_active = 1
 
 set nu incsearch breakindent linebreak
 set guioptions-=T  "remove toolbar
+set laststatus=2
 colorscheme cthulhian
 syntax on
 set guifont=Droid\ Sans\ Mono
