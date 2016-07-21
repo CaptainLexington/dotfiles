@@ -97,8 +97,7 @@ map <F8> mzgg=G`z
 let g:rainbow_active = 1
 
 set nu incsearch breakindent linebreak
-set guioptions-=T  "remove toolbar
 set laststatus=2
-colorscheme cthulhian
+colorscheme devbox-dark-256
 syntax on
 set guifont=Droid\ Sans\ Mono
