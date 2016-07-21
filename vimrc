@@ -96,7 +96,7 @@ map <F8> mzgg=G`z
 
 let g:rainbow_active = 1
 
-set nu incsearch breakindent linebreak
+set nu incsearch breakindent linebreak cursorline
 set laststatus=2
 colorscheme devbox-dark-256
 syntax on
