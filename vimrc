@@ -100,7 +100,7 @@ au BufRead,BufNewFile *.dust setfiletype html
 
 set nu incsearch breakindent linebreak cursorline
 set laststatus=2
-
+set backspace=2
 colorscheme devbox-dark-256
 syntax on
 set guifont=Droid\ Sans\ Mono
