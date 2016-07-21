@@ -95,9 +95,12 @@ call WrapOn()
 map <F8> mzgg=G`z
 
 let g:rainbow_active = 1
+" associate *.foo with php filetype
+au BufRead,BufNewFile *.dust setfiletype html
 
 set nu incsearch breakindent linebreak cursorline
 set laststatus=2
+
 colorscheme devbox-dark-256
 syntax on
 set guifont=Droid\ Sans\ Mono
