@@ -21,6 +21,7 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'qualiabyte/vim-colorstepper'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'vim-airline/vim-airline'
+Plugin 'vim-scripts/ZoomWin'
 
 " JavaScript
 
