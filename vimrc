@@ -16,7 +16,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'luochen1990/rainbow'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'qualiabyte/vim-colorstepper'
 Plugin 'terryma/vim-multiple-cursors'
@@ -32,6 +31,13 @@ Plugin 'tpope/vim-fireplace'
 Plugin 'guns/vim-clojure-static'
 Plugin 'vim-scripts/paredit.vim'
 Plugin 'tpope/vim-salve' 
+
+
+" Linux-only scripts
+let s:uname = system("echo -n \"$(uname)\"")
+if !v:shell_error && s:uname == "Linux"
+	Plugin 'Valloric/YouCompleteMe'
+endif
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
