@@ -89,12 +89,12 @@ function ToggleWrap()
 endfunction
 call WrapOn()
 
-
 " mappings
 "
 map <F8> mzgg=G`z
 
 let g:rainbow_active = 1
+let g:airline_powerline_fonts = 1
 " associate *.foo with php filetype
 au BufRead,BufNewFile *.dust setfiletype html
 
