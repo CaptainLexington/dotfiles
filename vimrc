@@ -18,9 +18,10 @@ Plugin 'tpope/vim-repeat'
 Plugin 'luochen1990/rainbow'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'flazz/vim-colorschemes'
-Plugin 'qualiabyte/vim-colorstepper'
+"Plugin 'qualiabyte/vim-colorstepper'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-scripts/ZoomWin'
 
 " JavaScript
@@ -95,7 +96,10 @@ map <F8> mzgg=G`z
 
 let g:rainbow_active = 1
 let g:airline_powerline_fonts = 1
+let g:airline_theme = "molokai"
 " associate *.foo with php filetype
+"
+"
 au BufRead,BufNewFile *.dust setfiletype html
 
 set nu incsearch breakindent linebreak cursorline
