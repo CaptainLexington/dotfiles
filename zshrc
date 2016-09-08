@@ -112,6 +112,9 @@ setopt RM_STAR_SILENT
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+unalias rm
+
 if [[ LINUX == 1 ]]
 then
 	function rcp() { rsync -rahP --modify-window=1 "$@" }
@@ -120,7 +123,5 @@ then
 
 	alias cp="rcp"
 	alias mv="rmv"
-
+	alias rm="rm -I"
 fi
-
-unalias rm
