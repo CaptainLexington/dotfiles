@@ -1,9 +1,32 @@
+if [[ `uname` == 'Linux' ]]
+then
+	export LINUX=1
+	export GNU_USERLAND=1
+else
+	export LINUX=
+fi
+
+if [[ `uname` == 'Darwin' ]]
+then
+	export OSX=1
+else
+	export OSX=
+fi
+
+# Detect Macports GNU userland installation
+if [[ "$OSX" == "1" ]]
+then
+	if [[ -e /opt/local/libexec/gnubin ]]
+	then
+		export GNU_USERLAND=1
+	fi
+fi
 
 
 
 
 # Path to your oh-my-zsh installation.
-  export ZSH=~/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -57,7 +80,7 @@ plugins=(git vi-mode archlinux common-aliases dircycle sudo web-search)
 
 # User configuration
 
-  export PATH="/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/opt/android-ndk:/opt/android-sdk/tools:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
+export PATH="/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/opt/android-ndk:/opt/android-sdk/tools:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -78,6 +101,9 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
+setopt RM_STAR_SILENT
+
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -86,10 +112,15 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-function rcp() { rsync -rahP --modify-window=1 "$@" }
-function rmv() { rsync -rahP --modify-window=1 --prune-empty-dirs --remove-sent-files "$@" }
-compdef _cp rcp rmv 
+if [[ LINUX == 1 ]]
+then
+	function rcp() { rsync -rahP --modify-window=1 "$@" }
+	function rmv() { rsync -rahP --modify-window=1 --prune-empty-dirs --remove-sent-files "$@" }
+	compdef _cp rcp rmv 
 
-alias cp="rcp"
-alias mv="rmv"
-alias rm="rm -I"
+	alias cp="rcp"
+	alias mv="rmv"
+
+fi
+
+unalias rm
