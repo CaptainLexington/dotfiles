@@ -101,8 +101,14 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-setopt RM_STAR_SILENT
+## ssh options
 
+if [[ -n $SSH_CONNECTION ]]
+then
+	export USE_POWERLINE_FONTS=false
+else
+	export USE_POWERLINE_FONTS=true
+fi
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -113,6 +119,7 @@ setopt RM_STAR_SILENT
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+setopt RM_STAR_SILENT
 unalias rm
 
 if [[ LINUX == 1 ]]

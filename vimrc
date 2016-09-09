@@ -103,8 +103,13 @@ call WrapOn()
 map <F8> mzgg=G`z
 
 let g:rainbow_active = 1
-let g:airline_powerline_fonts = 1
 let g:airline_theme = "molokai"
+
+let powerline=$USE_POWERLINE_FONTS
+
+if powerline == "true"
+	let g:airline_powerline_fonts = 1
+endif
 " associate *.foo with php filetype
 "
 "
