@@ -115,9 +115,10 @@ endif
 "
 au BufRead,BufNewFile *.dust setfiletype html
 
-set nu incsearch breakindent linebreak cursorline
+set nu incsearch breakindent linebreak cursorline 
 set laststatus=2
 set backspace=2
+set timeoutlen=1000 ttimeoutlen=10
 colorscheme devbox-dark-256
 syntax on
 set guifont=Droid\ Sans\ Mono
