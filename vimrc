@@ -115,6 +115,13 @@ endif
 "
 au BufRead,BufNewFile *.dust setfiletype html
 
+" automatically leave insert mode after 'updatetime' milliseconds of inaction
+au CursorHoldI * stopinsert
+
+" set 'updatetime' to 15 seconds when in insert mode
+au InsertEnter * let updaterestore=&updatetime | set updatetime=15000
+au InsertLeave * let &updatetime=updaterestore
+
 set nu incsearch breakindent linebreak cursorline 
 set laststatus=2
 set backspace=2
