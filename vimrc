@@ -36,6 +36,9 @@ Plugin 'guns/vim-clojure-static'
 Plugin 'vim-scripts/paredit.vim'
 Plugin 'tpope/vim-salve' 
 
+" Makrdown
+Plugin 'JamshedVesuna/vim-markdown-preview'
+
 
 " Linux-only scripts
 let s:uname = system("echo -n \"$(uname)\"")
