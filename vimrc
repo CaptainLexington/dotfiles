@@ -25,6 +25,7 @@ Plugin 'vim-scripts/ZoomWin'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'mtth/Scratch.vim'
 Plugin 'chaoren/vim-wordmotion'
+Plugin 'scrooloose/syntastic'
 
 " JavaScript
 
@@ -108,6 +109,16 @@ map <F8> mzgg=G`z
 
 let g:rainbow_active = 1
 let g:airline_theme = "molokai"
+let g:syntastic_javascript_checkers = ['standard']
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 
 let powerline=$USE_POWERLINE_FONTS
 
@@ -127,6 +138,9 @@ au InsertEnter * let updaterestore=&updatetime | set updatetime=15000
 au InsertLeave * let &updatetime=updaterestore
 
 set nu incsearch breakindent linebreak cursorline 
+set expandtab
+set shiftwidth=2
+set softtabstop=2
 set laststatus=2
 set backspace=2
 set timeoutlen=1000 ttimeoutlen=10
