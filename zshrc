@@ -122,7 +122,7 @@ fi
 setopt RM_STAR_SILENT
 unalias rm
 
-if [[ LINUX == 1 ]]
+if [[ $LINUX == 1 ]]
 then
 	function rcp() { rsync -rahP --modify-window=1 "$@" }
 	function rmv() { rsync -rahP --modify-window=1 --prune-empty-dirs --remove-sent-files "$@" }
