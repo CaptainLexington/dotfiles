@@ -107,6 +107,9 @@ call WrapOn()
 "
 map <F8> mzgg=G`z
 
+nnoremap <Leader>c :set cursorcolumn!<CR>
+
+
 let g:rainbow_active = 1
 let g:airline_theme = "molokai"
 let g:syntastic_javascript_checkers = ['standard']
@@ -137,7 +140,7 @@ au CursorHoldI * stopinsert
 au InsertEnter * let updaterestore=&updatetime | set updatetime=15000
 au InsertLeave * let &updatetime=updaterestore
 
-set nu incsearch breakindent linebreak cursorline 
+set nu incsearch breakindent linebreak cursorline cursorcolumn
 set expandtab
 set shiftwidth=2
 set softtabstop=2
