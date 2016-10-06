@@ -140,7 +140,7 @@ au CursorHoldI * stopinsert
 au InsertEnter * let updaterestore=&updatetime | set updatetime=15000
 au InsertLeave * let &updatetime=updaterestore
 
-set nu incsearch breakindent linebreak cursorline cursorcolumn
+set nu incsearch breakindent linebreak cursorline
 set expandtab
 set shiftwidth=2
 set softtabstop=2
