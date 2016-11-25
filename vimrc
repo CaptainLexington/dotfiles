@@ -109,7 +109,7 @@ call WrapOn()
 
 augroup reload_vimrc " {
   autocmd!
-  autocmd BufWritePost vimrc source $MYVIMRC
+  autocmd BufWritePost *vimrc source $MYVIMRC
 augroup END " }
 
 
@@ -152,7 +152,7 @@ au CursorHoldI * stopinsert
 au InsertEnter * let updaterestore=&updatetime | set updatetime=15000
 au InsertLeave * let &updatetime=updaterestore
 
-set nonu incsearch breakindent linebreak cursorline splitright splitbelow
+set nu incsearch breakindent linebreak cursorline splitright splitbelow
 set expandtab
 set shiftwidth=2
 set softtabstop=2
