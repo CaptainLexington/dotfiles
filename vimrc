@@ -44,7 +44,7 @@ Plugin 'JamshedVesuna/vim-markdown-preview'
 " Linux-only scripts
 let s:uname = system("echo -n \"$(uname)\"")
 if !v:shell_error && s:uname == "Linux"
-	Plugin 'Valloric/YouCompleteMe'
+  Plugin 'Valloric/YouCompleteMe'
 endif
 
 " All of your Plugins must be added before the following line
@@ -70,42 +70,48 @@ map ,s :split <C-R>=expand("%:p:h") . "/" <CR>
 map ,v :vsplit <C-R>=expand("%:p:h") . "/" <CR>
 
 function WrapOff()
-	setlocal nowrap
-	set virtualedit=all
-	silent! nunmap <buffer> <Up>
-	silent! nunmap <buffer> <Down>
-	silent! nunmap <buffer> <Home>
-	silent! nunmap <buffer> <End>
-	silent! iunmap <buffer> <Up>
-	silent! iunmap <buffer> <Down>
-	silent! iunmap <buffer> <Home>
-	silent! iunmap <buffer> <End>
+  setlocal nowrap
+  set virtualedit=all
+  silent! nunmap <buffer> <Up>
+  silent! nunmap <buffer> <Down>
+  silent! nunmap <buffer> <Home>
+  silent! nunmap <buffer> <End>
+  silent! iunmap <buffer> <Up>
+  silent! iunmap <buffer> <Down>
+  silent! iunmap <buffer> <Home>
+  silent! iunmap <buffer> <End>
 endfunction
 
 function WrapOn()
-	setlocal wrap linebreak nolist
-	set virtualedit=
-	setlocal display+=lastline
-	noremap  <buffer> <silent> <Up>   gk
-	noremap  <buffer> <silent> <Down> gj
-	noremap  <buffer> <silent> <Home> g<Home>
-	noremap  <buffer> <silent> <End>  g<End>
-	inoremap <buffer> <silent> <Up>   <C-o>gk
-	inoremap <buffer> <silent> <Down> <C-o>gj
-	inoremap <buffer> <silent> <Home> <C-o>g<Home>
-	inoremap <buffer> <silent> <End>  <C-o>g<End>
+  setlocal wrap linebreak nolist
+  set virtualedit=
+  setlocal display+=lastline
+  noremap  <buffer> <silent> <Up>   gk
+  noremap  <buffer> <silent> <Down> gj
+  noremap  <buffer> <silent> <Home> g<Home>
+  noremap  <buffer> <silent> <End>  g<End>
+  inoremap <buffer> <silent> <Up>   <C-o>gk
+  inoremap <buffer> <silent> <Down> <C-o>gj
+  inoremap <buffer> <silent> <Home> <C-o>g<Home>
+  inoremap <buffer> <silent> <End>  <C-o>g<End>
 endfunction
 
 function ToggleWrap()
-	if &wrap
-		echo "Wrap OFF"
-		call WrapOff()    
-	else
-		echo "Wrap ON"
-		call WrapOn()
-	endif
+  if &wrap
+    echo "Wrap OFF"
+    call WrapOff()    
+  else
+    echo "Wrap ON"
+    call WrapOn()
+  endif
 endfunction
 call WrapOn()
+
+augroup reload_vimrc " {
+  autocmd!
+  autocmd BufWritePost $MYVIMRC source $MYVIMRC
+augroup END " }
+
 
 " mappings
 "
@@ -126,13 +132,13 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_mode_map = {
-    \ "mode": "active",
-    \ "passive_filetypes": ["html"] }
+      \ "mode": "active",
+      \ "passive_filetypes": ["html"] }
 
 let powerline=$USE_POWERLINE_FONTS
 
 if powerline == "true"
-	let g:airline_powerline_fonts = 1
+  let g:airline_powerline_fonts = 1
 endif
 " associate *.foo with php filetype
 "
