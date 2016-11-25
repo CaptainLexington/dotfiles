@@ -64,6 +64,10 @@ filetype plugin indent on    " required
 
 " Use arrow keys to navigate visible (wrapped) instead of logical lines:
 noremap <silent> <Leader>w :call ToggleWrap()<CR>
+map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
+map ,t :tabe <C-R>=expand("%:p:h") . "/" <CR>
+map ,s :split <C-R>=expand("%:p:h") . "/" <CR>
+map ,v :vsplit <C-R>=expand("%:p:h") . "/" <CR>
 
 function WrapOff()
 	setlocal nowrap
