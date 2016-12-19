@@ -120,6 +120,7 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 setopt RM_STAR_SILENT
+setopt no_bang_hist
 unalias rm
 
 if [[ $LINUX == 1 ]]
