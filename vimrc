@@ -26,6 +26,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'mtth/Scratch.vim'
 Plugin 'chaoren/vim-wordmotion'
 Plugin 'scrooloose/syntastic'
+Plugin 'calebsmith/vim-lambdify'
 
 " JavaScript
 
