@@ -106,7 +106,7 @@ source $ZSH/oh-my-zsh.sh
 if [[ -n $SSH_CONNECTION ]]
 then
 	export USE_POWERLINE_FONTS=false
-        exec tmux
+        tmux
 else
 	export USE_POWERLINE_FONTS=true
 fi
