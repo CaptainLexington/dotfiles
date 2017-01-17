@@ -1,25 +1,25 @@
 if [[ `uname` == 'Linux' ]]
 then
-	export LINUX=1
-	export GNU_USERLAND=1
+  export LINUX=1
+  export GNU_USERLAND=1
 else
-	export LINUX=
+  export LINUX=
 fi
 
 if [[ `uname` == 'Darwin' ]]
 then
-	export OSX=1
+  export OSX=1
 else
-	export OSX=
+  export OSX=
 fi
 
 # Detect Macports GNU userland installation
 if [[ "$OSX" == "1" ]]
 then
-	if [[ -e /opt/local/libexec/gnubin ]]
-	then
-		export GNU_USERLAND=1
-	fi
+  if [[ -e /opt/local/libexec/gnubin ]]
+  then
+    export GNU_USERLAND=1
+  fi
 fi
 
 
@@ -105,10 +105,10 @@ source $ZSH/oh-my-zsh.sh
 
 if [[ -n $SSH_CONNECTION ]]
 then
-	export USE_POWERLINE_FONTS=false
-        tmux
+  export USE_POWERLINE_FONTS=false
+  tmux
 else
-	export USE_POWERLINE_FONTS=true
+  export USE_POWERLINE_FONTS=true
 fi
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
@@ -126,11 +126,15 @@ unalias rm
 
 if [[ $LINUX == 1 ]]
 then
-	function rcp() { rsync -rahP --modify-window=1 "$@" }
-	function rmv() { rsync -rahP --modify-window=1 --prune-empty-dirs --remove-sent-files "$@" }
-	compdef _cp rcp rmv 
+  function rcp() { rsync -rahP --modify-window=1 "$@" }
+  function rmv() { rsync -rahP --modify-window=1 --prune-empty-dirs --remove-sent-files "$@" }
+  compdef _cp rcp rmv 
 
-	alias cp="rcp"
-	alias mv="rmv"
-	alias rm="rm -I"
+  alias cp="rcp"
+  alias mv="rmv"
+  alias rm="rm -I"
+fi
+
+if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
+  exec startx
 fi
