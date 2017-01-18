@@ -106,7 +106,10 @@ source $ZSH/oh-my-zsh.sh
 if [[ -n $SSH_CONNECTION ]]
 then
   export USE_POWERLINE_FONTS=false
-  tmux
+  if  ! [[ -n $TMUX ]]
+  then
+    tmux
+  fi
 else
   export USE_POWERLINE_FONTS=true
 fi
@@ -127,7 +130,7 @@ unalias rm
 if [[ $LINUX == 1 ]]
 then
   function rcp() { rsync -rahP --modify-window=1 "$@" }
-  function rmv() { rsync -rahP --modify-window=1 --prune-empty-dirs --remove-sent-files "$@" }
+  function rmv() { rsync -rahP --modify-window=1 --prune-empty-dirs --remove-sent-files "$@" && rm -r "$@[1]" }
   compdef _cp rcp rmv 
 
   alias cp="rcp"
