@@ -108,7 +108,7 @@ then
   export USE_POWERLINE_FONTS=false
   if  ! [[ -n $TMUX ]]
   then
-    tmux
+    tmux attach 2> /dev/null || tmux
   fi
 else
   export USE_POWERLINE_FONTS=true
