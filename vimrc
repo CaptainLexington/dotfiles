@@ -31,6 +31,8 @@ Plugin 'calebsmith/vim-lambdify'
 " JavaScript
 
 Plugin 'vim-scripts/JavaScript-Indent'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 
 " Clojure
 Plugin 'tpope/vim-fireplace'
@@ -127,6 +129,8 @@ let g:syntastic_javascript_checkers = ['standard']
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+
+let g:jsx_ext_required = 0
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
