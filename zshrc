@@ -76,7 +76,7 @@ ZSH_THEME="avit"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vi-mode archlinux common-aliases dircycle sudo web-search)
+plugins=(git vi-mode archlinux common-aliases dircycle sudo web-search last-working-dir)
 
 # User configuration
 KEYTIMEOUT=1
