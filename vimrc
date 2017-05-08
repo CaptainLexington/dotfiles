@@ -15,6 +15,7 @@ Plugin 'yonchu/accelerated-smooth-scroll'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
+Plugin 'Chiel92/vim-autoformat'
 Plugin 'luochen1990/rainbow'
 Plugin 'flazz/vim-colorschemes'
 "Plugin 'qualiabyte/vim-colorstepper'
@@ -118,14 +119,14 @@ augroup END " }
 
 " mappings
 "
-map <F8> mzgg=G`z
-
+" map <F8> mzgg=G`z
+map <F8> :Autoformat<CR>
 nnoremap <Leader>c :set cursorcolumn!<CR>
 
 
 let g:rainbow_active = 1
 let g:airline_theme = "molokai"
-let g:syntastic_javascript_checkers = ['standard']
+let g:syntastic_javascript_checkers = ['eslint', 'standard']
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*

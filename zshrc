@@ -80,7 +80,7 @@ plugins=(git vi-mode archlinux common-aliases dircycle sudo web-search last-work
 
 # User configuration
 KEYTIMEOUT=1
-export PATH="/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/opt/android-ndk:/opt/android-sdk/tools:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
+export PATH="/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/opt/android-ndk:/opt/android-sdk/tools:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -141,3 +141,7 @@ fi
 if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
   exec startx
 fi
+ulimit -n 2000
+
+export PATH=$HOME/.binctl:$PATH
+[ -s "/Users/a6002095/.nvm/nvm.sh" ] && . "/Users/a6002095/.nvm/nvm.sh" # This loads nvm
