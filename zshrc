@@ -127,6 +127,9 @@ setopt RM_STAR_SILENT
 setopt no_bang_hist
 unalias rm
 
+# in case there's a gross system default VI (LOOKING AT YOU macOS)
+alias vi="vim"
+
 if [[ $LINUX == 1 ]]
 then
   function rcp() { rsync -rahP --modify-window=1 "$@" }

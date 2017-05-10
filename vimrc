@@ -15,6 +15,7 @@ Plugin 'yonchu/accelerated-smooth-scroll'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-unimpaired'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'luochen1990/rainbow'
 Plugin 'flazz/vim-colorschemes'
@@ -126,9 +127,7 @@ nnoremap <Leader>c :set cursorcolumn!<CR>
 
 let g:rainbow_active = 1
 let g:airline_theme = "molokai"
-let g:syntastic_javascript_checkers = ['eslint', 'standard']
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+let g:syntastic_javascript_checkers = ['eslint']
 set statusline+=%*
 
 let g:jsx_ext_required = 0
