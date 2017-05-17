@@ -13,6 +13,8 @@ Plugin 'VundleVim/Vundle.vim'
 " General scripts
 Plugin 'yonchu/accelerated-smooth-scroll'
 Plugin 'tpope/vim-fugitive'
+Plugin 'gregsexton/gitv'
+Plugin 'yegappan/mru'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-unimpaired'
@@ -32,7 +34,7 @@ Plugin 'calebsmith/vim-lambdify'
 
 " JavaScript
 
-Plugin 'vim-scripts/JavaScript-Indent'
+"Plugin 'vim-scripts/JavaScript-Indent'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 

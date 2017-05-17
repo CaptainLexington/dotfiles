@@ -80,7 +80,7 @@ plugins=(git vi-mode archlinux common-aliases dircycle sudo web-search last-work
 
 # User configuration
 KEYTIMEOUT=1
-export PATH="/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/opt/android-ndk:/opt/android-sdk/tools:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
+export PATH="/bin:/sbin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/opt/android-ndk:/opt/android-sdk/tools:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
