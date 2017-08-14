@@ -167,5 +167,6 @@ set backspace=2
 set timeoutlen=1000 ttimeoutlen=10
 set mouse=a
 colorscheme devbox-dark-256
+hi NonText ctermfg=bg
 syntax on
 set guifont=Droid\ Sans\ Mono
