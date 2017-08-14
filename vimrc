@@ -122,8 +122,7 @@ augroup END " }
 
 " mappings
 "
-" map <F8> mzgg=G`z
-map <F8> :Autoformat<CR>
+map <F8> mzgg=G`z
 nnoremap <Leader>c :set cursorcolumn!<CR>
 
 
@@ -166,6 +165,7 @@ set softtabstop=2
 set laststatus=2
 set backspace=2
 set timeoutlen=1000 ttimeoutlen=10
+set mouse=a
 colorscheme devbox-dark-256
 syntax on
 set guifont=Droid\ Sans\ Mono
