@@ -32,6 +32,7 @@ Plugin 'mtth/Scratch.vim'
 Plugin 'chaoren/vim-wordmotion'
 Plugin 'scrooloose/syntastic'
 Plugin 'calebsmith/vim-lambdify'
+Plugin 'mileszs/ack.vim'
 
 " JavaScript
 
@@ -44,7 +45,10 @@ Plugin 'tpope/vim-fireplace'
 Plugin 'guns/vim-clojure-static'
 Plugin 'clojure-vim/vim-cider'
 Plugin 'vim-scripts/paredit.vim'
-Plugin 'tpope/vim-salve' 
+Plugin 'tpope/vim-salve'
+
+"Elm
+Plugin 'ElmCast/elm-vim'
 
 " Makrdown
 Plugin 'JamshedVesuna/vim-markdown-preview'
@@ -108,7 +112,7 @@ endfunction
 function! ToggleWrap()
   if &wrap
     echo "Wrap OFF"
-    call WrapOff()    
+    call WrapOff()
   else
     echo "Wrap ON"
     call WrapOn()
@@ -124,13 +128,13 @@ augroup END " }
 
 " mappings
 "
-map <F8> mzgg=G`z
+" map <F8> mzgg=G`z
 nnoremap <Leader>c :set cursorcolumn!<CR>
 
 
 let g:rainbow_active = 1
 let g:airline_theme = "molokai"
-let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_checkers = ['standard']
 set statusline+=%*
 
 let g:jsx_ext_required = 0
@@ -143,15 +147,21 @@ let g:syntastic_mode_map = {
       \ "mode": "active",
       \ "passive_filetypes": ["html"] }
 
+let g:formatterpath = ["/home/captain/.yarn/bin/"]
+
 let powerline=$USE_POWERLINE_FONTS
+
+let g:autoformat_autoindent = 0
+let g:autoformat_retab = 0
+let g:autoformat_remove_trailing_spaces = 0
+
+let g:ackprg = 'ag --vimgrep'
 
 if powerline == "true"
   let g:airline_powerline_fonts = 1
 endif
-" associate *.foo with php filetype
-"
-"
-au BufRead,BufNewFile *.dust setfiletype html
+
+au BufWrite * :Autoformat
 
 " automatically leave insert mode after 'updatetime' milliseconds of inaction
 au CursorHoldI * stopinsert
@@ -160,7 +170,7 @@ au CursorHoldI * stopinsert
 au InsertEnter * let updaterestore=&updatetime | set updatetime=15000
 au InsertLeave * let &updatetime=updaterestore
 
-set nu incsearch breakindent linebreak cursorline splitright splitbelow
+set nu incsearch linebreak breakindent cursorline splitright splitbelow
 set expandtab
 set shiftwidth=2
 set softtabstop=2

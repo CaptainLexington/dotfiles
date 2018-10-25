@@ -134,6 +134,10 @@ alias vi="vim"
 alias ls="ls --group-directories-first --color=auto"
 alias tree="tree --dirsfirst"
 
+# command to fix merge conflicts
+alias git-fix="git diff --name-only | uniq | xargs vim"
+
+
 if [[ $LINUX == 1 ]]
 then
   function rcp() { rsync -rahP --modify-window=1 "$@" }
@@ -150,5 +154,12 @@ if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
 fi
 ulimit -n 2000
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+export EDITOR=vim
 export PATH=$HOME/.binctl:$PATH
 [ -s "/Users/a6002095/.nvm/nvm.sh" ] && . "/Users/a6002095/.nvm/nvm.sh" # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
