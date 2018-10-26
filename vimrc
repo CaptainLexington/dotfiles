@@ -31,6 +31,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'mtth/Scratch.vim'
 Plugin 'chaoren/vim-wordmotion'
 Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdtree'
 Plugin 'calebsmith/vim-lambdify'
 Plugin 'mileszs/ack.vim'
 
@@ -46,6 +47,8 @@ Plugin 'guns/vim-clojure-static'
 Plugin 'clojure-vim/vim-cider'
 Plugin 'vim-scripts/paredit.vim'
 Plugin 'tpope/vim-salve'
+Plugin 'venantius/vim-eastwood'
+Plugin 'venantius/vim-cljfmt'
 
 "Elm
 Plugin 'ElmCast/elm-vim'
@@ -135,12 +138,15 @@ nnoremap <Leader>c :set cursorcolumn!<CR>
 let g:rainbow_active = 1
 let g:airline_theme = "molokai"
 let g:syntastic_javascript_checkers = ['standard']
+let g:syntastic_clojure_checkers = ['eastwood']
 set statusline+=%*
 
 let g:jsx_ext_required = 0
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_mode_map = {
@@ -169,6 +175,9 @@ au CursorHoldI * stopinsert
 " set 'updatetime' to 15 seconds when in insert mode
 au InsertEnter * let updaterestore=&updatetime | set updatetime=15000
 au InsertLeave * let &updatetime=updaterestore
+
+" set Nerdtree to open all the time 
+autocmd vimenter * NERDTree
 
 set nu incsearch linebreak breakindent cursorline splitright splitbelow
 set expandtab

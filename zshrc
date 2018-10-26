@@ -105,12 +105,20 @@ source $ZSH/oh-my-zsh.sh
 
 if [[ -n $SSH_CONNECTION ]]
 then
-  export USE_POWERLINE_FONTS=false
+    export USE_POWERLINE_FONTS=false
   if  ! [[ -n $TMUX ]]
   then
     tmux attach 2> /dev/null || tmux
   fi
 else
+  function rcp() { rsync -rahP --modify-window=1 "$@" }
+  function rmv() { rsync -rahP --modify-window=1 --prune-empty-dirs --remove-sent-files "$@" && rm -r "$@[1]" }
+  compdef _cp rcp rmv 
+
+  alias cp="rcp"
+  alias mv="rmv"
+  alias rm="rm -I"
+
   export USE_POWERLINE_FONTS=true
 fi
 
@@ -136,18 +144,6 @@ alias tree="tree --dirsfirst"
 
 # command to fix merge conflicts
 alias git-fix="git diff --name-only | uniq | xargs vim"
-
-
-if [[ $LINUX == 1 ]]
-then
-  function rcp() { rsync -rahP --modify-window=1 "$@" }
-  function rmv() { rsync -rahP --modify-window=1 --prune-empty-dirs --remove-sent-files "$@" && rm -r "$@[1]" }
-  compdef _cp rcp rmv 
-
-  alias cp="rcp"
-  alias mv="rmv"
-  alias rm="rm -I"
-fi
 
 if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
   exec startx
