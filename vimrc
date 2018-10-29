@@ -167,7 +167,8 @@ if powerline == "true"
   let g:airline_powerline_fonts = 1
 endif
 
-au BufWrite * :Autoformat
+
+let g:ycm_semantic_triggers = { 'clojure' : [ '.', '/', '(' ] }
 
 " automatically leave insert mode after 'updatetime' milliseconds of inaction
 au CursorHoldI * stopinsert
@@ -178,6 +179,8 @@ au InsertLeave * let &updatetime=updaterestore
 
 " set Nerdtree to open all the time 
 autocmd vimenter * NERDTree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() != 0 || exists("s:std_in") | wincmd p | endif
 
 set nu incsearch linebreak breakindent cursorline splitright splitbelow
 set expandtab
