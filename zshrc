@@ -142,6 +142,9 @@ alias vi="vim"
 alias ls="ls --group-directories-first --color=auto"
 alias tree="tree --dirsfirst"
 
+#alias to go to the root of a git repo
+alias cdg="cd `git rev-parse --show-toplevel`"
+
 # command to fix merge conflicts
 alias git-fix="git diff --name-only | uniq | xargs vim"
 
