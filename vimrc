@@ -142,7 +142,6 @@ set statusline+=%*
 let g:jsx_ext_required = 0
 
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_check_on_open = 1
@@ -172,6 +171,7 @@ let g:ale_linters = {
 let g:ale_fixers = {'javascript': ['standard']}
 let g:ale_lint_on_save = 1
 let g:ale_fix_on_save = 1
+let g:ale_sign_column_always = 1
 
 let g:ycm_semantic_triggers = { 'clojure' : [ '.', '/', '(' ] }
 
