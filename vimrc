@@ -31,7 +31,7 @@ Plugin 'vim-scripts/ZoomWin'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'mtth/Scratch.vim'
 Plugin 'chaoren/vim-wordmotion'
-Plugin 'scrooloose/syntastic'
+Plugin 'w0rp/ale'
 Plugin 'scrooloose/nerdtree'
 Plugin 'calebsmith/vim-lambdify'
 Plugin 'mileszs/ack.vim'
@@ -48,7 +48,6 @@ Plugin 'guns/vim-clojure-static'
 Plugin 'clojure-vim/vim-cider'
 Plugin 'vim-scripts/paredit.vim'
 Plugin 'tpope/vim-salve'
-Plugin 'venantius/vim-eastwood'
 Plugin 'venantius/vim-cljfmt'
 
 "Elm
@@ -138,8 +137,6 @@ nnoremap <Leader>c :set cursorcolumn!<CR>
 
 let g:rainbow_active = 1
 let g:airline_theme = "molokai"
-let g:syntastic_javascript_checkers = ['standard']
-let g:syntastic_clojure_checkers = ['eastwood']
 set statusline+=%*
 
 let g:jsx_ext_required = 0
@@ -168,6 +165,13 @@ if powerline == "true"
   let g:airline_powerline_fonts = 1
 endif
 
+" configure ALE
+let g:ale_linters = {
+      \   'javascript': ['standard'],
+      \}
+let g:ale_fixers = {'javascript': ['standard']}
+let g:ale_lint_on_save = 1
+let g:ale_fix_on_save = 1
 
 let g:ycm_semantic_triggers = { 'clojure' : [ '.', '/', '(' ] }
 
