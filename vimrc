@@ -53,8 +53,12 @@ Plugin 'venantius/vim-cljfmt'
 "Elm
 Plugin 'ElmCast/elm-vim'
 
-" Makrdown
+" English Writing
 Plugin 'JamshedVesuna/vim-markdown-preview'
+Plugin 'junegunn/goyo.vim'
+Plugin 'junegunn/limelight.vim'
+Plugin 'vim-scripts/fountain.vim'
+Plugin 'vim-scripts/voom'
 
 
 " Linux-only scripts
@@ -188,10 +192,18 @@ au CursorHoldI * stopinsert
 au InsertEnter * let updaterestore=&updatetime | set updatetime=15000
 au InsertLeave * let &updatetime=updaterestore
 
-" set Nerdtree to open all the time 
-autocmd vimenter * NERDTree
+" set leader keymapping to open NERDTree
+noremap <silent> <Leader>n :NERDTreeToggle<CR>
+
+" when enabling NerdTree, make sure to keep the original file in focus
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() != 0 || exists("s:std_in") | wincmd p | endif
+
+" set Nerdtree to close if it's the only thing left open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" set leader keymapping for Goyo/Limelight
+noremap <silent> <Leader>g :Goyo<CR>
 
 set nu incsearch linebreak breakindent cursorline splitright splitbelow
 set expandtab
