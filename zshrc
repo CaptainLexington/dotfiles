@@ -162,3 +162,12 @@ export PATH=$HOME/.binctl:$PATH
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# plugins
+source ~/.zplug/init.zsh
+zplug 'wfxr/forgit', defer:1
+zplug "b4b4r07/enhancd", use:init.sh
+zplug "popstas/zsh-command-time"
+zplug "zlsun/solarized-man"
+
+zplug load --verbose
