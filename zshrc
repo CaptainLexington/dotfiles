@@ -173,6 +173,9 @@ zplug "csurfer/tmuxrepl"
 
 zplug load
 
+# autosuggestions config
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=4'
+
 # powerlevel9k theme
 source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
