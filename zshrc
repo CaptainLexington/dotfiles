@@ -32,7 +32,6 @@ export ZSH=~/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="avit"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -169,5 +168,14 @@ zplug 'wfxr/forgit', defer:1
 zplug "b4b4r07/enhancd", use:init.sh
 zplug "popstas/zsh-command-time"
 zplug "zlsun/solarized-man"
+zplug "zsh-users/zsh-autosuggestions"
+zplug "arialdomartini/oh-my-git"
 
-zplug load --verbose
+zplug load
+
+# powerlevel9k theme
+source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vi_mode time)
+POWERLEVEL9K_VI_INSERT_MODE_STRING=''
+POWERLEVEL9K_VI_COMMAND_MODE_STRING='X'
