@@ -169,13 +169,14 @@ zplug "b4b4r07/enhancd", use:init.sh
 zplug "popstas/zsh-command-time"
 zplug "zlsun/solarized-man"
 zplug "zsh-users/zsh-autosuggestions"
-zplug "arialdomartini/oh-my-git"
 
 zplug load
 
 # powerlevel9k theme
 source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vi_mode time)
 POWERLEVEL9K_VI_INSERT_MODE_STRING=''
 POWERLEVEL9K_VI_COMMAND_MODE_STRING='X'
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
