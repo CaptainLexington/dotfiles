@@ -22,8 +22,6 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-classpath'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'luochen1990/rainbow'
-Plugin 'flazz/vim-colorschemes'
-"Plugin 'qualiabyte/vim-colorstepper'
 "Plugin 'terryma/vim-multiple-cursors'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -35,6 +33,12 @@ Plugin 'w0rp/ale'
 Plugin 'scrooloose/nerdtree'
 Plugin 'calebsmith/vim-lambdify'
 Plugin 'mileszs/ack.vim'
+
+" Colorschemes
+
+Plugin 'flazz/vim-colorschemes'
+"Plugin 'qualiabyte/vim-colorstepper'
+Plugin 'morhetz/gruvbox'
 
 " JavaScript
 
@@ -140,7 +144,7 @@ nnoremap <Leader>c :set cursorcolumn!<CR>
 
 
 let g:rainbow_active = 1
-let g:airline_theme = "molokai"
+let g:airline_theme = "gruvbox"
 
 let g:jsx_ext_required = 0
 
@@ -172,10 +176,8 @@ let g:ale_fixers = {'javascript': ['standard']}
 let g:ale_lint_on_save = 1
 let g:ale_fix_on_save = 1
 let g:ale_sign_column_always = 1
-let g:ale_change_sign_column_color = 1
 let g:airline#extensions#ale#enabled = 1
 let g:ale_open_list = 1
-let g:ale_keep_list_window_open = 1
 let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_delay = 500
 let g:ale_lint_on_insert_leave = 1
@@ -213,9 +215,11 @@ set laststatus=2
 set backspace=2
 set timeoutlen=1000 ttimeoutlen=10
 set mouse=a
-colorscheme devbox-dark-256
+colorscheme gruvbox
+set background=dark
 syntax on
 set guifont=Droid\ Sans\ Mono
 hi NonText ctermfg=bg
-hi SpellBad ctermbg=DarkMagenta
-hi error ctermbg=DarkMagenta
+hi error ctermbg=DarkYellow
+hi error ctermfg=Yellow
+hi SpellBad ctermbg=DarkYellow
