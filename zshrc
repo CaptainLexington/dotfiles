@@ -75,7 +75,7 @@ export ZSH=~/.oh-my-zsh
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vi-mode archlinux common-aliases dircycle sudo web-search last-working-dir)
+plugins=(vi-mode archlinux common-aliases dircycle sudo web-search last-working-dir)
 
 # User configuration
 KEYTIMEOUT=1
@@ -142,10 +142,10 @@ alias ls="ls --group-directories-first --color=auto"
 alias tree="tree --dirsfirst"
 
 #alias to go to the root of a git repo
-alias cdg="cd `git rev-parse --show-toplevel`"
+alias cdg='cd `git rev-parse --show-toplevel`'
 
 # command to fix merge conflicts
-alias git-fix="git diff --name-only | uniq | xargs vim"
+alias git-fix='git diff --name-only | uniq | xargs vim'
 
 if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
   exec startx
@@ -169,6 +169,7 @@ zplug "b4b4r07/enhancd", use:init.sh
 zplug "popstas/zsh-command-time"
 zplug "zlsun/solarized-man"
 zplug "zsh-users/zsh-autosuggestions"
+zplug "csurfer/tmuxrepl"
 
 zplug load
 
