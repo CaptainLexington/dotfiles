@@ -11,6 +11,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " General scripts
+Plugin 'mhinz/vim-startify'
 Plugin 'yonchu/accelerated-smooth-scroll'
 Plugin 'tpope/vim-fugitive'
 Plugin 'gregsexton/gitv'
@@ -22,17 +23,18 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-classpath'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'luochen1990/rainbow'
+Plugin 'christoomey/vim-tmux-navigator'
 "Plugin 'terryma/vim-multiple-cursors'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-scripts/ZoomWin'
-Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'mtth/Scratch.vim'
 Plugin 'chaoren/vim-wordmotion'
 Plugin 'w0rp/ale'
 Plugin 'scrooloose/nerdtree'
 Plugin 'calebsmith/vim-lambdify'
 Plugin 'mileszs/ack.vim'
+Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 
 " Colorschemes
 
@@ -61,7 +63,7 @@ Plugin 'ElmCast/elm-vim'
 Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
-Plugin 'vim-scripts/fountain.vim'
+"Plugin 'vim-scripts/fountain.vim'
 Plugin 'vim-scripts/voom'
 
 
@@ -181,7 +183,7 @@ let g:ale_open_list = 1
 let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_delay = 500
 let g:ale_lint_on_insert_leave = 1
-let g:ale_list_window_size = 5
+let g:ale_list_window_size = 10
 
 
 " configure YouCompleteMe
@@ -206,8 +208,12 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 " set leader keymapping for Goyo/Limelight
 noremap <silent> <Leader>g :Goyo<CR>
+" set background-color for Limelight
+let g:limelight_conceal_ctermfg = 'DarkGray'
 
-set nu incsearch linebreak breakindent cursorline splitright splitbelow
+let g:airline_symbols_ascii = 1
+
+set nu incsearch linebreak breakindent cursorline splitright splitbelow relativenumber
 set expandtab
 set shiftwidth=2
 set softtabstop=2
@@ -215,8 +221,8 @@ set laststatus=2
 set backspace=2
 set timeoutlen=1000 ttimeoutlen=10
 set mouse=a
-colorscheme gruvbox
 set background=dark
+colorscheme gruvbox
 syntax on
 set guifont=Droid\ Sans\ Mono
 hi NonText ctermfg=bg
