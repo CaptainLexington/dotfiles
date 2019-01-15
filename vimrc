@@ -35,6 +35,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'calebsmith/vim-lambdify'
 Plugin 'mileszs/ack.vim'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
+Plugin 'TaDaa/vimade'
 
 " Colorschemes
 
