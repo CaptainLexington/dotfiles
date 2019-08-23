@@ -36,6 +36,10 @@ Plugin 'calebsmith/vim-lambdify'
 Plugin 'mileszs/ack.vim'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Plugin 'TaDaa/vimade'
+Plugin 'Shougo/deoplete.nvim'
+Plugin 'roxma/nvim-yarp'
+Plugin 'roxma/vim-hug-neovim-rpc'
+
 
 " Colorschemes
 
@@ -68,11 +72,6 @@ Plugin 'junegunn/limelight.vim'
 Plugin 'vim-scripts/voom'
 
 
-" Linux-only scripts
-let s:uname = system("echo -n \"$(uname)\"")
-if !v:shell_error && s:uname == "Linux"
-  Plugin 'Valloric/YouCompleteMe'
-endif
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -188,7 +187,7 @@ let g:ale_list_window_size = 10
 
 
 " configure YouCompleteMe
-let g:ycm_semantic_triggers = { 'clojure' : [ '.', '/', '(' ] }
+let g:deoplete#enable_at_startup=1
 
 " automatically leave insert mode after 'updatetime' milliseconds of inaction
 au CursorHoldI * stopinsert
