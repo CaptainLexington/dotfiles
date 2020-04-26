@@ -138,7 +138,7 @@ unalias rm
 alias vi="vim"
 
 # put dirs first like god intended
-alias ls="ls --group-directories-first --color=auto"
+alias ls="gls --group-directories-first --color=auto"
 alias tree="tree --dirsfirst"
 
 #alias to go to the root of a git repo
@@ -146,6 +146,10 @@ alias cdg='cd `git rev-parse --show-toplevel`'
 
 # command to fix merge conflicts
 alias git-fix='git diff --name-only | uniq | xargs vim'
+
+# apstra-specific
+alias slicercli_update='docker pull docker-registry:5000/slicercli:latest'
+alias slicercli='docker run --rm -i -t -v $HOME:/root  -v $PWD:/project docker-registry:5000/slicercli /usr/local/bin/slicercli -i'
 
 if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
   exec startx
@@ -177,10 +181,14 @@ zplug load
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=4'
 
 # powerlevel9k theme
-source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
+source /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vi_mode time)
 POWERLEVEL9K_VI_INSERT_MODE_STRING=''
 POWERLEVEL9K_VI_COMMAND_MODE_STRING='X'
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+source /Users/dale/Library/Preferences/org.dystroy.broot/launcher/bash/br

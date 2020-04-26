@@ -21,6 +21,7 @@ Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-classpath'
+Plugin 'AndrewRadev/bufferize.vim'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'luochen1990/rainbow'
 Plugin 'christoomey/vim-tmux-navigator'
@@ -30,34 +31,33 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-scripts/ZoomWin'
 Plugin 'mtth/Scratch.vim'
 Plugin 'chaoren/vim-wordmotion'
+Plugin 'junegunn/vim-easy-align'
 Plugin 'w0rp/ale'
-Plugin 'scrooloose/nerdtree'
 Plugin 'calebsmith/vim-lambdify'
+Plugin 'brooth/far.vim'
 Plugin 'mileszs/ack.vim'
+set rtp+=/usr/local/opt/fzf
+Plugin 'junegunn/fzf.vim'
+Plugin 'ajh17/VimCompletesMe'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Plugin 'TaDaa/vimade'
-Plugin 'Shougo/deoplete.nvim'
-Plugin 'roxma/nvim-yarp'
-Plugin 'roxma/vim-hug-neovim-rpc'
-
 
 " Colorschemes
-
 Plugin 'flazz/vim-colorschemes'
 "Plugin 'qualiabyte/vim-colorstepper'
 Plugin 'morhetz/gruvbox'
 
 " JavaScript
-
 "Plugin 'vim-scripts/JavaScript-Indent'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 
 " Clojure
 Plugin 'tpope/vim-fireplace'
-Plugin 'guns/vim-clojure-static'
+Plugin 'guns/vim-clojure-highlight'
 Plugin 'clojure-vim/vim-cider'
-Plugin 'vim-scripts/paredit.vim'
+Plugin 'guns/vim-sexp'
+Plugin 'tpope/vim-sexp-mappings-for-regular-people'
 Plugin 'tpope/vim-salve'
 Plugin 'venantius/vim-cljfmt'
 
@@ -145,8 +145,19 @@ augroup END " }
 nnoremap <Leader>c :set cursorcolumn!<CR>
 
 
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+" Use vim-easy-align to align Clojure maps
+nnoremap <Leader>m va{ :'<,'>EasyAlign \ <CR>
+
 let g:rainbow_active = 1
 let g:airline_theme = "gruvbox"
+
+let g:sexp_no_word_maps = 1
 
 let g:jsx_ext_required = 0
 
@@ -186,8 +197,9 @@ let g:ale_lint_on_insert_leave = 1
 let g:ale_list_window_size = 10
 
 
-" configure YouCompleteMe
-let g:deoplete#enable_at_startup=1
+" configure VimCompletesMe
+set omnifunc=syntaxcomplete#Complete
+let g:vcm_omni_pattern='\k\+\(\.\|->\|::\|\/\)\k*$'
 
 " automatically leave insert mode after 'updatetime' milliseconds of inaction
 au CursorHoldI * stopinsert
@@ -195,16 +207,6 @@ au CursorHoldI * stopinsert
 " set 'updatetime' to 15 seconds when in insert mode
 au InsertEnter * let updaterestore=&updatetime | set updatetime=15000
 au InsertLeave * let &updatetime=updaterestore
-
-" set leader keymapping to open NERDTree
-noremap <silent> <Leader>n :NERDTreeToggle<CR>
-
-" when enabling NerdTree, make sure to keep the original file in focus
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() != 0 || exists("s:std_in") | wincmd p | endif
-
-" set Nerdtree to close if it's the only thing left open
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " set leader keymapping for Goyo/Limelight
 noremap <silent> <Leader>g :Goyo<CR>
