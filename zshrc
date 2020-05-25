@@ -100,27 +100,6 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-## ssh options
-
-if [[ -n $SSH_CONNECTION ]]
-then
-    export USE_POWERLINE_FONTS=false
-  if  ! [[ -n $TMUX ]]
-  then
-    tmux attach 2> /dev/null || tmux
-  fi
-else
-  function rcp() { rsync -rahP --modify-window=1 "$@" }
-  function rmv() { rsync -rahP --modify-window=1 --prune-empty-dirs --remove-sent-files "$@" && rm -r "$@[1]" }
-  compdef _cp rcp rmv 
-
-  alias cp="rcp"
-  alias mv="rmv"
-  alias rm="rm -I"
-
-  export USE_POWERLINE_FONTS=true
-fi
-
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -138,7 +117,7 @@ unalias rm
 alias vi="vim"
 
 # put dirs first like god intended
-alias ls="gls --group-directories-first --color=auto"
+alias ls="ls --group-directories-first --color=auto" 
 alias tree="tree --dirsfirst"
 
 #alias to go to the root of a git repo
@@ -164,7 +143,9 @@ export PATH=$HOME/.binctl:$PATH
 [ -s "/Users/a6002095/.nvm/nvm.sh" ] && . "/Users/a6002095/.nvm/nvm.sh" # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.local/bin:$PATH"
+
+export CARP_DIR=~/development/Carp
 
 # plugins
 source ~/.zplug/init.zsh
@@ -174,21 +155,14 @@ zplug "popstas/zsh-command-time"
 zplug "zlsun/solarized-man"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "csurfer/tmuxrepl"
+zplug "romkatv/powerlevel10k", as:theme, depth:1
 
 zplug load
 
 # autosuggestions config
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=4'
 
-# powerlevel9k theme
-source /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vi_mode time)
-POWERLEVEL9K_VI_INSERT_MODE_STRING=''
-POWERLEVEL9K_VI_COMMAND_MODE_STRING='X'
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-source /Users/dale/Library/Preferences/org.dystroy.broot/launcher/bash/br
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

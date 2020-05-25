@@ -40,7 +40,7 @@ set rtp+=/usr/local/opt/fzf
 Plugin 'junegunn/fzf.vim'
 Plugin 'ajh17/VimCompletesMe'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
-Plugin 'TaDaa/vimade'
+" Plugin 'TaDaa/vimade'
 
 " Colorschemes
 Plugin 'flazz/vim-colorschemes'
@@ -60,6 +60,9 @@ Plugin 'guns/vim-sexp'
 Plugin 'tpope/vim-sexp-mappings-for-regular-people'
 Plugin 'tpope/vim-salve'
 Plugin 'venantius/vim-cljfmt'
+
+" Carp
+Plugin 'hellerve/carp-vim'
 
 "Elm
 Plugin 'ElmCast/elm-vim'
@@ -137,6 +140,10 @@ augroup reload_vimrc " {
   autocmd!
   autocmd BufWritePost *vimrc source $MYVIMRC
 augroup END " }
+
+augroup filetypedetect
+  autocmd BufNew,BufNewFile,BufRead *.carp :setfiletype lisp
+augroup END
 
 
 " mappings
