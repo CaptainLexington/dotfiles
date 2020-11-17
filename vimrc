@@ -73,6 +73,8 @@ Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
 "Plugin 'vim-scripts/fountain.vim'
 Plugin 'vim-scripts/voom'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 
 
 
