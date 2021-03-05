@@ -67,12 +67,17 @@ Plugin 'hellerve/carp-vim'
 "Elm
 Plugin 'ElmCast/elm-vim'
 
+" Rust
+Plugin 'rust-lang/rust.vim'
+
 " English Writing
 Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
 "Plugin 'vim-scripts/fountain.vim'
 Plugin 'vim-scripts/voom'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 
 
 
@@ -141,10 +146,6 @@ augroup reload_vimrc " {
   autocmd BufWritePost *vimrc source $MYVIMRC
 augroup END " }
 
-augroup filetypedetect
-  autocmd BufNew,BufNewFile,BufRead *.carp :setfiletype lisp
-augroup END
-
 
 " mappings
 "
@@ -160,6 +161,8 @@ nmap ga <Plug>(EasyAlign)
 
 " Use vim-easy-align to align Clojure maps
 nnoremap <Leader>m va{ :'<,'>EasyAlign \ <CR>
+
+autocmd BufNewFile,BufRead *.edn set filetype=clojure
 
 let g:rainbow_active = 1
 let g:airline_theme = "gruvbox"
@@ -221,6 +224,8 @@ noremap <silent> <Leader>g :Goyo<CR>
 let g:limelight_conceal_ctermfg = 'DarkGray'
 
 let g:airline_symbols_ascii = 1
+
+let g:sexp_filetypes = 'clojure,scheme,lisp,timl,carp'
 
 set nu incsearch linebreak breakindent cursorline splitright splitbelow relativenumber
 set expandtab
