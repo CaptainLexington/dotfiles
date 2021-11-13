@@ -227,6 +227,8 @@ let g:airline_symbols_ascii = 1
 
 let g:sexp_filetypes = 'clojure,scheme,lisp,timl,carp'
 
+let g:vim_markdown_folding_disabled = 1
+
 set nu incsearch linebreak breakindent cursorline splitright splitbelow relativenumber
 set expandtab
 set shiftwidth=2
