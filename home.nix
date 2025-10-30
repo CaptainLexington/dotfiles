@@ -1,5 +1,11 @@
 { config, pkgs, ... }:
-
+let
+  nixvim = import (builtins.fetchGit {
+    url = "https://github.com/nix-community/nixvim";
+    # If you are not running an unstable channel of nixpkgs, select the corresponding branch of Nixvim.
+    ref = "nixos-25.05";
+  });
+in
 {
   home.username = "captain";
   home.homeDirectory = "/home/captain";
@@ -121,10 +127,66 @@
     };
   };
 
-  programs.neovim = {
+
+
+  imports = [
+    nixvim.homeModules.nixvim
+  ];
+  programs.nixvim = {
     enable = true;
     viAlias = true;
     vimAlias = true;
+    colorscheme = "slate";
+    extraConfigLua = ''
+      vim.wo.number = true
+      vim.o.hlsearch = false
+      vim.o.breakindent = true
+      vim.g.mapleader = "\\"
+      vim.o.shell = "fish"
+      vim.opt.termguicolors = true
+      vim.o.signcolumn = "yes"
+      vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
+    '';
+
+    plugins = {
+      fugitive.enable = true;
+      floaterm = {
+        enable = true;
+	settings = {
+	  keymap_kill = "<Leader>fk";
+	  keymap_new = "<Leader>ft";
+	  keymap_next = "<C-n>";
+	  keymap_prev = "<C-p>";
+	  keymap_toggle = "<leader>t";
+	  rootmarkers = [ "build/CMakeFiles"
+			  ".project"
+			  ".git"
+			  ".hg"
+			  ".svn"
+			  ".root" ];
+	  title = "";
+	};
+      };
+      zen-mode.enable = true;
+      hop = {
+        enable = true;
+	luaConfig.post = ''
+          vim.keymap.set('n', 'h', ':HopWord<CR>')
+	'';
+      };
+      telescope = {
+        enable = true;
+	keymaps = {
+          "<leader>ff" = "find_files";
+	  "<leader>fr" = "frecency";
+	  "<leader>fg" = "live_grep";
+	};
+	extensions = {
+          frecency.enable = true;
+	  fzf-native.enable = true;
+	};
+      };
+    };
   };
 
   # This value determines the home Manager release that your
