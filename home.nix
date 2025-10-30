@@ -3,6 +3,7 @@ let
   nixvim = import (builtins.fetchGit {
     url = "https://github.com/nix-community/nixvim";
     # If you are not running an unstable channel of nixpkgs, select the corresponding branch of Nixvim.
+    rev = "15d85781db008ebbd85c2a8833694e01e1669b0c";
     ref = "nixos-25.05";
   });
 in
