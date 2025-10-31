@@ -87,8 +87,8 @@ in
   programs.git = {
     enable = true;
     settings = {
-      user.nmame = "C. Warren Dale";
-      user.Email = "adventureonthehighseas@gmail.com";
+      user.name = "C. Warren Dale";
+      user.email = "adventureonthehighseas@gmail.com";
       init.defaultBranch = "main";
     };
   };
