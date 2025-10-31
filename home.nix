@@ -86,9 +86,9 @@ in
   # basic configuration of git, please change to your own
   programs.git = {
     enable = true;
-    userName = "C. Warren Dale";
-    userEmail = "adventureonthehighseas@gmail.com";
-    extraConfig = {
+    settings = {
+      user.nmame = "C. Warren Dale";
+      user.Email = "adventureonthehighseas@gmail.com";
       init.defaultBranch = "main";
     };
   };
@@ -172,10 +172,11 @@ in
       zen-mode.enable = true;
       hop = {
         enable = true;
-	luaConfig.post = ''
+      	luaConfig.post = ''
           vim.keymap.set('n', 'h', ':HopWord<CR>')
-	'';
+	       '';
       };
+      web-devicons.enable = true;
       telescope = {
         enable = true;
 	keymaps = {
