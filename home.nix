@@ -15,7 +15,7 @@ in
   home.packages = with pkgs; [
     # here is some command line tools I use frequently
     # feel free to add your own or remove some of them
-   
+
     home-manager
     neofetch
     ranger
@@ -148,25 +148,46 @@ in
       vim.opt.termguicolors = true
       vim.o.signcolumn = "yes"
       vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
+
+      vim.keymap.set('n', '<leader>ft', ':FloatermNew<CR>')
+      vim.keymap.set('n', 't', ':FloatermToggle<CR>')
+      vim.keymap.set('t', '<Esc>', '<C-\\><C-n>:q<CR>')
+      vim.keymap.set('t', '<C-t>', '<C-\\><C-n>:FloatermNew<CR>')
+      vim.keymap.set('t', '<C-n>', '<C-\\><C-n>:FloatermNext<CR>')
+      vim.keymap.set('t', '<C-b>', '<C-\\><C-n>:FloatermPrev<CR>')
     '';
+
 
     plugins = {
       fugitive.enable = true;
+      vim-surround.enable = true;
+      conform-nvim = {
+        enable = true;
+	settings = {};
+      };
+      none-ls = {
+        enable = true;
+        sources.diagnostics.clj_kondo = {
+	  enable = true;
+	  settings = {
+            virtual_text = true;
+	  };
+	};
+      };
+      treesitter = {
+        enable = true;
+	settings = {};
+      };
       floaterm = {
         enable = true;
 	settings = {
 	  keymap_kill = "<Leader>fk";
-	  keymap_new = "<Leader>ft";
-	  keymap_next = "<C-n>";
-	  keymap_prev = "<C-p>";
-	  keymap_toggle = "<leader>t";
 	  rootmarkers = [ "build/CMakeFiles"
 			  ".project"
 			  ".git"
 			  ".hg"
 			  ".svn"
 			  ".root" ];
-	  title = "";
 	};
       };
       zen-mode.enable = true;
@@ -190,6 +211,17 @@ in
 	};
       };
     };
+
+    extraPlugins = [
+      pkgs.vimPlugins.vim-wordmotion
+      pkgs.vimPlugins.vim-clojure-highlight
+      pkgs.vimPlugins.vim-clojure-static
+      pkgs.vimPlugins.vim-repeat
+      pkgs.vimPlugins.vim-easy-align
+      pkgs.vimPlugins.vim-sexp
+      pkgs.vimPlugins.vim-sexp-mappings-for-regular-people
+
+    ];
   };
 
   # This value determines the home Manager release that your
