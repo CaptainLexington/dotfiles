@@ -7,7 +7,7 @@ let
     ref = "nixos-25.05";
   });
 in
-{
+  {
   home.username = "captain";
   home.homeDirectory = "/home/captain";
 
@@ -16,7 +16,6 @@ in
     # here is some command line tools I use frequently
     # feel free to add your own or remove some of them
 
-    home-manager
     neofetch
     ranger
     ncdu
@@ -103,7 +102,7 @@ in
         exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
       fi
     '';
-   };
+  };
 
   programs.fish = {
     enable = true;
@@ -148,6 +147,9 @@ in
       vim.opt.termguicolors = true
       vim.o.signcolumn = "yes"
       vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
+      vim.opt.expandtab = true
+      vim.opt.shiftwidth = 2
+      vim.opt.tabstop = 2
 
       vim.keymap.set('n', '<leader>ft', ':FloatermNew<CR>')
       vim.keymap.set('n', 't', ':FloatermToggle<CR>')
@@ -155,7 +157,7 @@ in
       vim.keymap.set('t', '<C-t>', '<C-\\><C-n>:FloatermNew<CR>')
       vim.keymap.set('t', '<C-n>', '<C-\\><C-n>:FloatermNext<CR>')
       vim.keymap.set('t', '<C-b>', '<C-\\><C-n>:FloatermPrev<CR>')
-    '';
+      '';
 
 
     plugins = {
@@ -163,52 +165,56 @@ in
       vim-surround.enable = true;
       conform-nvim = {
         enable = true;
-	settings = {};
+        settings = {};
       };
       none-ls = {
         enable = true;
         sources.diagnostics.clj_kondo = {
-	  enable = true;
-	  settings = {
-            virtual_text = true;
-	  };
-	};
+          enable = true;
+          settings = {
+            diagnostic_config = {
+              virtual_text = true;
+            };
+          };
+        };
       };
       treesitter = {
         enable = true;
-	settings = {};
+        settings = {
+          indent.enable = true;
+        };
       };
       floaterm = {
         enable = true;
-	settings = {
-	  keymap_kill = "<Leader>fk";
-	  rootmarkers = [ "build/CMakeFiles"
-			  ".project"
-			  ".git"
-			  ".hg"
-			  ".svn"
-			  ".root" ];
-	};
+        settings = {
+          keymap_kill = "<Leader>fk";
+          rootmarkers = [ "build/CMakeFiles"
+            ".project"
+            ".git"
+            ".hg"
+            ".svn"
+            ".root" ];
+        };
       };
       zen-mode.enable = true;
       hop = {
         enable = true;
-      	luaConfig.post = ''
+        luaConfig.post = ''
           vim.keymap.set('n', 'h', ':HopWord<CR>')
-	       '';
+          '';
       };
       web-devicons.enable = true;
       telescope = {
         enable = true;
-	keymaps = {
+        keymaps = {
           "<leader>ff" = "find_files";
-	  "<leader>fr" = "frecency";
-	  "<leader>fg" = "live_grep";
-	};
-	extensions = {
+          "<leader>fr" = "frecency";
+          "<leader>fg" = "live_grep";
+        };
+        extensions = {
           frecency.enable = true;
-	  fzf-native.enable = true;
-	};
+          fzf-native.enable = true;
+        };
       };
     };
 
